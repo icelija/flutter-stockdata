@@ -1,5 +1,6 @@
 import 'package:beamer/beamer.dart';
 import 'package:flutter/material.dart';
+import 'package:stockdata/features/search/presentation/search_page.dart';
 
 class BeamerLocations extends BeamLocation<BeamState> {
   BeamerLocations(RouteInformation routeInformation) : super(routeInformation);
@@ -13,11 +14,7 @@ class BeamerLocations extends BeamLocation<BeamState> {
       const BeamPage(
         key: ValueKey('HomePage'),
         title: 'HomePage',
-        child: Scaffold(
-          body: Center(
-            child: Text('Home'),
-          ),
-        ),
+        child: SearchPage(),
       ),
       // if (state.uri.pathSegments.contains('simple-page'))
       //   const BeamPage(
