@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:stockdata/features/search/data/models/meta_data_response.dart';
+import 'package:stockdata/common/data/model/meta_data_response.dart';
 import 'package:stockdata/features/search/data/models/stock_data_response.dart';
 
 part 'entity_search_response.g.dart';

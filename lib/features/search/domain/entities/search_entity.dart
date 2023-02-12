@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:stockdata/features/search/domain/entities/meta_data.dart';
+import 'package:stockdata/common/domain/entities/meta_data.dart';
 import 'package:stockdata/features/search/domain/entities/stock_data.dart';
 
 class SearchEntity extends Equatable {

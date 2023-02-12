@@ -3,11 +3,9 @@ import 'package:stockdata/features/search/data/repositories/search_repository.da
 import 'package:stockdata/features/search/domain/notifiers/search_state.dart';
 
 final searchNotifierProvider =
-    StateNotifierProvider<SearchNotifier, SearchState>((ref) {
-  return SearchNotifier(
-    ref.watch(searchRepositoryProvider),
-  )..search();
-});
+    StateNotifierProvider<SearchNotifier, SearchState>((ref) => SearchNotifier(
+          ref.watch(searchRepositoryProvider),
+        )..search());
 
 class SearchNotifier extends StateNotifier<SearchState> {
   final SearchRepository _searchRepository;

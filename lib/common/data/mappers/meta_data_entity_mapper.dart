@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:stockdata/common/data/mappers/entity_mapper.dart';
-import 'package:stockdata/features/search/data/models/meta_data_response.dart';
-import 'package:stockdata/features/search/domain/entities/meta_data.dart';
+import 'package:stockdata/common/data/model/meta_data_response.dart';
+import 'package:stockdata/common/domain/entities/meta_data.dart';
 
 final metaDataEntityMapperProvider =
     Provider<EntityMapper<MetaData, MetaDataResponse>>(

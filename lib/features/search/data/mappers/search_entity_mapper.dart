@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:stockdata/common/data/mappers/entity_mapper.dart';
-import 'package:stockdata/features/search/data/mappers/meta_data_entity_mapper.dart';
+import 'package:stockdata/common/data/mappers/meta_data_entity_mapper.dart';
 import 'package:stockdata/features/search/data/mappers/stock_data_entity_mapper.dart';
 import 'package:stockdata/features/search/data/models/entity_search_response.dart';
 import 'package:stockdata/features/search/domain/entities/search_entity.dart';

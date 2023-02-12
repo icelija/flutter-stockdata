@@ -31,7 +31,7 @@ class SearchRepositoryImpl implements SearchRepository {
 
   @override
   EitherFailureOr<SearchEntity> search(
-      {String query = "", int page = 1}) async {
+      {String query = '', int page = 1}) async {
     try {
       final result = await _apiClient.searchEntities(query, page);
       return Right(_searchEntityMapper(result));
