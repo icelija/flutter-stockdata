@@ -9,7 +9,7 @@ class NewsStockData extends Equatable {
   final String exchangeLong;
   final String country;
   final num matchScore;
-  final num sentimentScore;
+  final num? sentimentScore;
 
   const NewsStockData({
     required this.symbol,
@@ -20,7 +20,7 @@ class NewsStockData extends Equatable {
     required this.exchangeLong,
     required this.country,
     required this.matchScore,
-    required this.sentimentScore,
+    this.sentimentScore,
   });
 
   NewsStockData copyWith({

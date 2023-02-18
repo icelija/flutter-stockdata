@@ -60,11 +60,61 @@ class S {
     );
   }
 
-  /// `Permission has been denied, please enable it in device settings`
-  String get permission_denied {
+  /// `No data for your query`
+  String get no_data_for_your_query {
     return Intl.message(
-      'Permission has been denied, please enable it in device settings',
-      name: 'permission_denied',
+      'No data for your query',
+      name: 'no_data_for_your_query',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Name`
+  String get name {
+    return Intl.message(
+      'Name',
+      name: 'name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Symbol`
+  String get symbol {
+    return Intl.message(
+      'Symbol',
+      name: 'symbol',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Exchange`
+  String get exchange {
+    return Intl.message(
+      'Exchange',
+      name: 'exchange',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search`
+  String get search {
+    return Intl.message(
+      'Search',
+      name: 'search',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `News`
+  String get news {
+    return Intl.message(
+      'News',
+      name: 'news',
       desc: '',
       args: [],
     );

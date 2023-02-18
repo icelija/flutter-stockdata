@@ -67,7 +67,7 @@ class _ApiClient implements ApiClient {
     )
             .compose(
               _dio.options,
-              '/news/all',
+              '/news/all?language=en',
               queryParameters: queryParameters,
               data: _data,
             )

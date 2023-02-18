@@ -22,8 +22,13 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "permission_denied": MessageLookupByLibrary.simpleMessage(
-            "Permission has been denied, please enable it in device settings"),
+        "exchange": MessageLookupByLibrary.simpleMessage("Exchange"),
+        "name": MessageLookupByLibrary.simpleMessage("Name"),
+        "news": MessageLookupByLibrary.simpleMessage("News"),
+        "no_data_for_your_query":
+            MessageLookupByLibrary.simpleMessage("No data for your query"),
+        "search": MessageLookupByLibrary.simpleMessage("Search"),
+        "symbol": MessageLookupByLibrary.simpleMessage("Symbol"),
         "unknown_error_occurred":
             MessageLookupByLibrary.simpleMessage("Unknown error occurred")
       };

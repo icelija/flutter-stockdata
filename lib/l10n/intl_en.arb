@@ -1,4 +1,10 @@
 {
     "@@locale": "en",
     "unknown_error_occurred": "Unknown error occurred",
+    "no_data_for_your_query": "No data for your query",
+    "name": "Name",
+    "symbol": "Symbol",
+    "exchange": "Exchange",
+    "search": "Search",
+    "news": "News"
 }

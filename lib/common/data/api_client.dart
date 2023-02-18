@@ -15,7 +15,7 @@ abstract class ApiClient {
     @Query('page') int page,
   );
 
-  @GET('/news/all')
+  @GET('/news/all?language=en')
   Future<NewsResponse> getNews(
     @Query('search') String search,
     @Query('page') int page,

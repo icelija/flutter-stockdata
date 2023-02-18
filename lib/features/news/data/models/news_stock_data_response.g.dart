@@ -17,7 +17,7 @@ NewsStockDataResponse _$NewsStockDataResponseFromJson(
       exchangeLong: json['exchange_long'] as String,
       country: json['country'] as String,
       matchScore: json['match_score'] as num,
-      sentimentScore: json['sentiment_score'] as num,
+      sentimentScore: json['sentiment_score'] as num?,
     );
 
 Map<String, dynamic> _$NewsStockDataResponseToJson(

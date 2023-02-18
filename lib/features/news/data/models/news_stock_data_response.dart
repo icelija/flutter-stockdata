@@ -12,7 +12,7 @@ class NewsStockDataResponse {
   final String exchangeLong;
   final String country;
   final num matchScore;
-  final num sentimentScore;
+  final num? sentimentScore;
 
   const NewsStockDataResponse({
     required this.symbol,
@@ -23,7 +23,7 @@ class NewsStockDataResponse {
     required this.exchangeLong,
     required this.country,
     required this.matchScore,
-    required this.sentimentScore,
+    this.sentimentScore,
   });
 
   factory NewsStockDataResponse.fromJson(Map<String, dynamic> json) =>
