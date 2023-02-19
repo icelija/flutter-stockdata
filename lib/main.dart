@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:stockdata/common/domain/router/beamer_locations.dart';
-import 'package:stockdata/features/search/presentation/search_page.dart';
+import 'package:stockdata/features/home/presentation/home_page.dart';
 import 'package:stockdata/theme/primary_theme.dart';
 import 'package:stockdata/theme/secondary_theme.dart';
 
@@ -19,7 +19,7 @@ void main() {
 }
 
 final beamerDelegate = BeamerDelegate(
-  initialPath: SearchPage.routeName,
+  initialPath: HomePage.routeName,
   locationBuilder: (routeInformation, _) => BeamerLocations(routeInformation),
 );
 

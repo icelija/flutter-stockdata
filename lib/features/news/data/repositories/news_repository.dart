@@ -17,7 +17,7 @@ final newsRepositoryProvider = Provider<NewsRepository>((ref) {
 });
 
 abstract class NewsRepository {
-  EitherFailureOr<NewsEntity> getNews();
+  EitherFailureOr<NewsEntity> getNews({String query = '', int page = 1});
 }
 
 class NewsRepositoryImpl implements NewsRepository {

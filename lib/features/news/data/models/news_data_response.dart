@@ -3,7 +3,7 @@ import 'package:stockdata/features/news/data/models/news_stock_data_response.dar
 
 part 'news_data_response.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(fieldRename: FieldRename.snake)
 class NewsDataResponse {
   final String uuid;
   final String title;

@@ -14,13 +14,13 @@ NewsDataResponse _$NewsDataResponseFromJson(Map<String, dynamic> json) =>
       keywords: json['keywords'] as String,
       snippet: json['snippet'] as String,
       url: json['url'] as String,
-      imageUrl: json['imageUrl'] as String?,
+      imageUrl: json['image_url'] as String?,
       language: json['language'] as String,
-      publishedOn: json['publishedOn'] == null
+      publishedOn: json['published_on'] == null
           ? null
-          : DateTime.parse(json['publishedOn'] as String),
+          : DateTime.parse(json['published_on'] as String),
       source: json['source'] as String,
-      relevanceScore: json['relevanceScore'] as num?,
+      relevanceScore: json['relevance_score'] as num?,
       entities: (json['entities'] as List<dynamic>)
           .map((e) => NewsStockDataResponse.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -37,11 +37,11 @@ Map<String, dynamic> _$NewsDataResponseToJson(NewsDataResponse instance) =>
       'keywords': instance.keywords,
       'snippet': instance.snippet,
       'url': instance.url,
-      'imageUrl': instance.imageUrl,
+      'image_url': instance.imageUrl,
       'language': instance.language,
-      'publishedOn': instance.publishedOn?.toIso8601String(),
+      'published_on': instance.publishedOn?.toIso8601String(),
       'source': instance.source,
-      'relevanceScore': instance.relevanceScore,
+      'relevance_score': instance.relevanceScore,
       'entities': instance.entities,
       'similar': instance.similar,
     };
