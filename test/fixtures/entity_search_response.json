@@ -1,0 +1,30 @@
+{
+  "meta": {
+    "found": 4,
+    "returned": 2,
+    "limit": 2,
+    "page": 1
+  },
+  "data": [
+    {
+      "symbol": "MOV.NZ",
+      "name": "Move Logistics Group Ltd",
+      "type": "equity",
+      "industry": null,
+      "exchange": "NZX",
+      "exchange_long": "New Zealand Stock Exchange",
+      "mic_code": "XNZE",
+      "country": "nz"
+    },
+    {
+      "symbol": "^NZSCG",
+      "name": "NEW ZEALAND EXCH NZSX SCI GR IDX",
+      "type": "index",
+      "industry": null,
+      "exchange": "NZX",
+      "exchange_long": "New Zealand Stock Exchange",
+      "mic_code": "XNZE",
+      "country": "nz"
+    }
+  ]
+}
