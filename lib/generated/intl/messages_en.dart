@@ -23,6 +23,8 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "exchange": MessageLookupByLibrary.simpleMessage("Exchange"),
+        "full_date_format":
+            MessageLookupByLibrary.simpleMessage("dd.MM.yyyy. HH:mm:ss"),
         "name": MessageLookupByLibrary.simpleMessage("Name"),
         "news": MessageLookupByLibrary.simpleMessage("News"),
         "no_data_for_your_query":

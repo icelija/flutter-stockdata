@@ -91,7 +91,7 @@ void main() {
     );
 
     stateNotifierTest<SearchNotifier, SearchState>(
-      'executes first fetch and fails',
+      'executes first fetch and second fails',
       build: () => getProviderContainer().read(searchNotifierProvider.notifier),
       setUp: () {
         when(() => searchRepository.search()).thenAnswer(
@@ -112,10 +112,10 @@ void main() {
       build: () => getProviderContainer().read(searchNotifierProvider.notifier),
       setUp: () {
         when(() => searchRepository.search(page: 1)).thenAnswer(
-          (_) async => Future.value(const Right(testSearchEntity)),
+          (_) async => const Right(testSearchEntity),
         );
         when(() => searchRepository.search(page: 2)).thenAnswer(
-          (_) async => Future.value(Left(Failure.generic())),
+          (_) async => Left(Failure.generic()),
         );
       },
       actions: (stateNotifier) async {

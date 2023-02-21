@@ -16,7 +16,7 @@ final newsDataEntityMapperProvider =
       imageUrl: response.imageUrl,
       keywords: response.keywords,
       language: response.language,
-      publishedOn: response.publishedOn,
+      publishedAt: response.publishedAt?.toLocal(),
       relevanceScore: response.relevanceScore,
       snippet: response.snippet,
       source: response.source,

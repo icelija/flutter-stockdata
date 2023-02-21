@@ -1,0 +1,97 @@
+{
+  "meta": {
+    "found": 4,
+    "returned": 2,
+    "limit": 2,
+    "page": 1
+  },
+  "data": [
+    {
+      "uuid": "81da86b4-db17-4616-9e98-69bdf4266746",
+      "title": "BrightSpire Capital, Inc. (BRSP) Q4 2022 Earnings Call Transcript",
+      "description": "BrightSpire Capital, Inc. (NYSE:NYSE:BRSP) Q4 2022 Earnings Conference Call February 21, 2023 10:00 AM ETCompany ParticipantsDavid Palame - General CounselMike Mazzei - Chief Executive...",
+      "keywords": "",
+      "snippet": "BrightSpire Capital, Inc. (NYSE:BRSP) Q4 2022 Earnings Conference Call February 21, 2023 10:00 AM ET\n\nCompany Participants\n\nDavid Palame - General Counsel\n\nMike...",
+      "url": "https://seekingalpha.com/article/4580326-brightspire-capital-inc-brsp-q4-2022-earnings-call-transcript",
+      "image_url": "https://static.seekingalpha.com/assets/og_image_1200-29b2bfe1a595477db6826bd2126c63ac2091efb7ec76347a8e7f81ba17e3de6c.png",
+      "language": "en",
+      "published_at": "2023-02-21T19:29:03.000000Z",
+      "source": "seekingalpha.com",
+      "relevance_score": null,
+      "entities": [],
+      "similar": [
+        {
+          "uuid": "4638526b-7579-430d-9df4-03dc108e3a38",
+          "title": "Walker & Dunlop, Inc. (WD) Q4 2022 Earnings Call Transcript",
+          "description": "Walker & Dunlop, Inc. (NYSE:NYSE:WD) Q4 2022 Earnings Conference Call February 21, 2023 8:30 AM ETCompany ParticipantsKelsey Duffey - Senior Vice President of Investor RelationsWilly...",
+          "keywords": "",
+          "snippet": "Walker & Dunlop, Inc. (NYSE:WD) Q4 2022 Earnings Conference Call February 21, 2023 8:30 AM ET\n\nCompany Participants\n\nKelsey Duffey - Senior Vice President of In...",
+          "url": "https://seekingalpha.com/article/4580246-walker-and-dunlop-inc-wd-q4-2022-earnings-call-transcript",
+          "image_url": "https://static.seekingalpha.com/assets/og_image_1200-29b2bfe1a595477db6826bd2126c63ac2091efb7ec76347a8e7f81ba17e3de6c.png",
+          "language": "en",
+          "published_at": "2023-02-21T16:11:03.000000Z",
+          "source": "seekingalpha.com",
+          "relevance_score": null,
+          "entities": [
+            {
+              "symbol": "WD",
+              "name": "Walker & Dunlop, Inc.",
+              "exchange": "NYSE",
+              "exchange_long": "New York Stock Exchange",
+              "country": "us",
+              "type": "equity",
+              "industry": "Financial Services",
+              "match_score": 154.47781,
+              "sentiment_score": 0.114582,
+              "highlights": [
+                {
+                  "highlight": "<em>Walker</em> & <em>Dunlop</em>, <em>Inc</em>.",
+                  "sentiment": 0,
+                  "highlighted_in": "main_text"
+                },
+                {
+                  "highlight": "Securities\n\nKelsey Duffey\n\nGood morning, I’m Kelsey Duffey, Senior Vice President of Investor Relations at <em>Walker</em> & <em>Dunlop</em>, and I would like to welcome you to Walker & Dunlop’s Fourth Quarter and Full-Year 2022 Earnings Conference Call and Webcast.",
+                  "sentiment": 0.8625,
+                  "highlighted_in": "main_text"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "uuid": "1037da53-e169-4d2b-9f14-e6c1eaa1af30",
+      "title": "Arconic Corporation (ARNC) Q4 2022 Earnings Call Transcript",
+      "description": "Arconic Corporation (NYSE:NYSE:ARNC) Q4 2022 Earnings Conference Call February 21, 2023 10:00 AM ETCompany ParticipantsShane Rourke - Director of Investor RelationsTimothy Myers - Chief...",
+      "keywords": "",
+      "snippet": "Arconic Corporation (NYSE:ARNC) Q4 2022 Earnings Conference Call February 21, 2023 10:00 AM ET\n\nCompany Participants\n\nShane Rourke - Director of Investor Relati...",
+      "url": "https://seekingalpha.com/article/4580304-arconic-corporation-arnc-q4-2022-earnings-call-transcript",
+      "image_url": "https://static.seekingalpha.com/assets/og_image_1200-29b2bfe1a595477db6826bd2126c63ac2091efb7ec76347a8e7f81ba17e3de6c.png",
+      "language": "en",
+      "published_at": "2023-02-21T18:25:02.000000Z",
+      "source": "seekingalpha.com",
+      "relevance_score": null,
+      "entities": [
+        {
+          "symbol": "ARNC",
+          "name": "Arconic Corporation",
+          "exchange": "NYSE",
+          "exchange_long": "New York Stock Exchange",
+          "country": "us",
+          "type": "equity",
+          "industry": "Industrials",
+          "match_score": 117.90056,
+          "sentiment_score": 0.3548,
+          "highlights": [
+            {
+              "highlight": "<em>Arconic</em> <em>Corporation</em> (<em>NYSE:ARNC</em>) Q4 2022 Earnings Conference Call February 21, 2023 10:00 AM ET\n\nCompany Participants\n\nShane Rourke - Director of Investor Relations\n\nTimothy Myers - Chief Executive Officer\n\nErick Asmussen - Executive Vice President and Chief Financial Officer\n\nConference Call Participants\n\nTimna Tanners - Wolfe Research\n\nCurt Woodworth",
+              "sentiment": 0,
+              "highlighted_in": "main_text"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

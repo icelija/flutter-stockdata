@@ -10,7 +10,7 @@ class NewsData extends Equatable {
   final String url;
   final String? imageUrl;
   final String language;
-  final DateTime? publishedOn;
+  final DateTime? publishedAt;
   final String source;
   final num? relevanceScore;
   final List<NewsStockData> entities;
@@ -25,7 +25,7 @@ class NewsData extends Equatable {
     required this.url,
     required this.imageUrl,
     required this.language,
-    required this.publishedOn,
+    required this.publishedAt,
     required this.source,
     required this.relevanceScore,
     required this.entities,
@@ -56,7 +56,7 @@ class NewsData extends Equatable {
       url: url ?? this.url,
       imageUrl: imageUrl ?? this.imageUrl,
       language: language ?? this.language,
-      publishedOn: publishedOn ?? this.publishedOn,
+      publishedAt: publishedOn ?? this.publishedAt,
       source: source ?? this.source,
       relevanceScore: relevanceScore ?? this.relevanceScore,
       entities: entities ?? this.entities,
@@ -74,7 +74,7 @@ class NewsData extends Equatable {
         url,
         imageUrl,
         language,
-        publishedOn,
+        publishedAt,
         source,
         relevanceScore,
         entities,

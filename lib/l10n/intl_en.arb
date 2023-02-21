@@ -1,5 +1,6 @@
 {
     "@@locale": "en",
+    "full_date_format": "dd.MM.yyyy. HH:mm:ss",
     "unknown_error_occurred": "Unknown error occurred",
     "no_data_for_your_query": "No data for your query",
     "name": "Name",

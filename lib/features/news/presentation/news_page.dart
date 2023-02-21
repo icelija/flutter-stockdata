@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:stockdata/common/domain/utils/datetime_extension.dart';
 import 'package:stockdata/features/news/domain/entities/news_entity.dart';
 import 'package:stockdata/features/news/domain/notifiers/news_notifier.dart';
 import 'package:stockdata/generated/l10n.dart';
@@ -70,6 +71,7 @@ class NewsListView extends ConsumerWidget {
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 if (!kIsWeb && stockData.imageUrl != null)
                   CachedNetworkImage(
@@ -99,6 +101,13 @@ class NewsListView extends ConsumerWidget {
                           .labelLarge
                           ?.copyWith(color: Colors.blue)),
                 ),
+                if (stockData.publishedAt != null)
+                  Padding(
+                      padding: const EdgeInsets.only(top: 10),
+                      child: Text(
+                        stockData.publishedAt!.getFullDateString(),
+                        style: Theme.of(context).textTheme.bodyMedium,
+                      ))
               ],
             ),
           );

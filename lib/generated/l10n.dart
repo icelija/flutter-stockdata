@@ -50,6 +50,16 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
+  /// `dd.MM.yyyy. HH:mm:ss`
+  String get full_date_format {
+    return Intl.message(
+      'dd.MM.yyyy. HH:mm:ss',
+      name: 'full_date_format',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Unknown error occurred`
   String get unknown_error_occurred {
     return Intl.message(

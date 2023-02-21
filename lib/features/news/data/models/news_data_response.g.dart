@@ -16,9 +16,9 @@ NewsDataResponse _$NewsDataResponseFromJson(Map<String, dynamic> json) =>
       url: json['url'] as String,
       imageUrl: json['image_url'] as String?,
       language: json['language'] as String,
-      publishedOn: json['published_on'] == null
+      publishedAt: json['published_at'] == null
           ? null
-          : DateTime.parse(json['published_on'] as String),
+          : DateTime.parse(json['published_at'] as String),
       source: json['source'] as String,
       relevanceScore: json['relevance_score'] as num?,
       entities: (json['entities'] as List<dynamic>)
@@ -39,7 +39,7 @@ Map<String, dynamic> _$NewsDataResponseToJson(NewsDataResponse instance) =>
       'url': instance.url,
       'image_url': instance.imageUrl,
       'language': instance.language,
-      'published_on': instance.publishedOn?.toIso8601String(),
+      'published_at': instance.publishedAt?.toIso8601String(),
       'source': instance.source,
       'relevance_score': instance.relevanceScore,
       'entities': instance.entities,
