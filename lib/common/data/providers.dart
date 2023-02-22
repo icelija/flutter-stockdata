@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:stockdata/common/data/interceptors/token_interceptor.dart';
 import 'package:stockdata/constants.dart';
 
@@ -18,5 +19,6 @@ final dioProvider = Provider.family<Dio, String>((ref, baseUrl) => Dio(
     )..interceptors.addAll(
         [
           ref.watch(tokenInterceptorProvider),
+          PrettyDioLogger(),
         ],
       ));

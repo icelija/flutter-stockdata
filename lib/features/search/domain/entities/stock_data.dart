@@ -1,5 +1,9 @@
 import 'package:equatable/equatable.dart';
+import 'package:json_annotation/json_annotation.dart';
 
+part 'stock_data.g.dart';
+
+@JsonSerializable()
 class StockData extends Equatable {
   final String symbol;
   final String name;
@@ -20,6 +24,11 @@ class StockData extends Equatable {
     required this.micCode,
     required this.country,
   });
+
+  factory StockData.fromJson(Map<String, dynamic> json) =>
+      _$StockDataFromJson(json);
+
+  Map<String, dynamic> toJson() => _$StockDataToJson(this);
 
   StockData copyWith({
     String? symbol,

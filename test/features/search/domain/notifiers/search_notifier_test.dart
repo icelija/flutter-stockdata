@@ -7,6 +7,7 @@ import 'package:mocktail/mocktail.dart';
 import 'package:state_notifier_test/state_notifier_test.dart';
 import 'package:stockdata/common/domain/entities/failure.dart';
 import 'package:stockdata/features/search/data/repositories/search_repository.dart';
+import 'package:stockdata/features/search/domain/entities/search_entity.dart';
 import 'package:stockdata/features/search/domain/notifiers/search_notifier.dart';
 import 'package:stockdata/features/search/domain/notifiers/search_state.dart';
 import 'package:stockdata/generated/l10n.dart';
@@ -36,14 +37,16 @@ void main() {
       build: () => getProviderContainer().read(searchNotifierProvider.notifier),
       setUp: () {
         when(() => searchRepository.search(page: 1, query: '')).thenAnswer(
-          (_) async => const Right(testSearchEntity),
+          (_) => Stream<Either<Failure, SearchEntity>>.fromIterable(
+              [const Right(testSearchEntity), const Right(testSearchEntity)]),
         );
       },
-      actions: (stateNotifier) {
-        stateNotifier.search();
+      actions: (stateNotifier) async {
+        await stateNotifier.search();
       },
       expect: () => [
         const SearchState.loading(null),
+        const SearchState.loaded(testSearchEntity),
         const SearchState.loaded(testSearchEntity),
       ],
     );
@@ -53,15 +56,16 @@ void main() {
       build: () => getProviderContainer().read(searchNotifierProvider.notifier),
       setUp: () {
         when(() => searchRepository.search(page: 1, query: '')).thenAnswer(
-          (_) async => const Right(testSearchEntity),
+          (_) => Stream<Either<Failure, SearchEntity>>.fromIterable(
+              [const Right(testSearchEntity), const Right(testSearchEntity)]),
         );
       },
-      actions: (stateNotifier) {
-        stateNotifier.search();
-        stateNotifier.search();
+      actions: (stateNotifier) async {
+        await Future.wait([stateNotifier.search(), stateNotifier.search()]);
       },
       expect: () => [
         const SearchState.loading(null),
+        const SearchState.loaded(testSearchEntity),
         const SearchState.loaded(testSearchEntity),
       ],
     );
@@ -71,10 +75,12 @@ void main() {
       build: () => getProviderContainer().read(searchNotifierProvider.notifier),
       setUp: () {
         when(() => searchRepository.search(page: 1, query: '')).thenAnswer(
-          (_) async => const Right(testSearchEntity),
+          (_) => Stream<Either<Failure, SearchEntity>>.fromIterable(
+              [const Right(testSearchEntity), const Right(testSearchEntity)]),
         );
-        when(() => searchRepository.search(page: 2, query: ''))
-            .thenAnswer((_) async => const Right(testSearchEntity2));
+        when(() => searchRepository.search(page: 2, query: '')).thenAnswer(
+            (_) => Stream<Either<Failure, SearchEntity>>.fromIterable(
+                [const Right(testSearchEntity2)]));
       },
       actions: (stateNotifier) async {
         await stateNotifier.search();
@@ -82,6 +88,7 @@ void main() {
       },
       expect: () => [
         const SearchState.loading(null),
+        const SearchState.loaded(testSearchEntity),
         const SearchState.loaded(testSearchEntity),
         const SearchState.loading(testSearchEntity),
         SearchState.loaded(testSearchEntity2.copyWith(
@@ -91,12 +98,12 @@ void main() {
     );
 
     stateNotifierTest<SearchNotifier, SearchState>(
-      'executes first fetch and second fails',
+      'executes first fetch and fails',
       build: () => getProviderContainer().read(searchNotifierProvider.notifier),
       setUp: () {
-        when(() => searchRepository.search()).thenAnswer(
-          (_) async => Left(Failure.generic()),
-        );
+        when(() => searchRepository.search()).thenAnswer((_) =>
+            Stream<Either<Failure, SearchEntity>>.fromIterable(
+                [Left(Failure.generic())]));
       },
       actions: (stateNotifier) {
         stateNotifier.search();
@@ -108,15 +115,16 @@ void main() {
     );
 
     stateNotifierTest<SearchNotifier, SearchState>(
-      'executes first and seconds fetch and then fails',
+      'executes first and second fetch and then fails',
       build: () => getProviderContainer().read(searchNotifierProvider.notifier),
       setUp: () {
         when(() => searchRepository.search(page: 1)).thenAnswer(
-          (_) async => const Right(testSearchEntity),
+          (_) => Stream<Either<Failure, SearchEntity>>.fromIterable(
+              [const Right(testSearchEntity), const Right(testSearchEntity)]),
         );
-        when(() => searchRepository.search(page: 2)).thenAnswer(
-          (_) async => Left(Failure.generic()),
-        );
+        when(() => searchRepository.search(page: 2)).thenAnswer((_) =>
+            Stream<Either<Failure, SearchEntity>>.fromIterable(
+                [Left(Failure.generic())]));
       },
       actions: (stateNotifier) async {
         await stateNotifier.search();
@@ -124,6 +132,7 @@ void main() {
       },
       expect: () => [
         const SearchState.loading(null),
+        const SearchState.loaded(testSearchEntity),
         const SearchState.loaded(testSearchEntity),
         const SearchState.loading(testSearchEntity),
         SearchState.failure(Failure.generic()),

@@ -20,14 +20,13 @@ class SearchNotifier extends StateNotifier<SearchState> {
     final currentSearchEntity =
         firstFetch ? null : state.whenOrNull(loaded: (data) => data);
     state = SearchState.loading(currentSearchEntity);
-    final result = await _searchRepository.search(
-        query: query, page: (currentSearchEntity?.metaData.page ?? 0) + 1);
-    result.fold((l) => state = SearchState.failure(l), (r) {
-      final currentStocksData = state.maybeWhen(
-          orElse: () => <StockData>[],
-          loading: (data) => data?.stocksData ?? <StockData>[]);
-      state = SearchState.loaded(
-          r.copyWith(stocksData: currentStocksData + r.stocksData));
-    });
+    await for (final result in _searchRepository.search(
+        query: query, page: (currentSearchEntity?.metaData.page ?? 0) + 1)) {
+      result.fold((l) => state = SearchState.failure(l), (r) {
+        state = SearchState.loaded(r.copyWith(
+            stocksData: (currentSearchEntity?.stocksData ?? <StockData>[]) +
+                r.stocksData));
+      });
+    }
   }
 }
