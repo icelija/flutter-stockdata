@@ -37,14 +37,14 @@ class SearchRepositoryImpl implements SearchRepository {
   StreamFailureOr<SearchEntity> search(
       {String query = '', int page = 1}) async* {
     try {
-      final isFirstPageAndNoSearch = query.isEmpty && page == 1;
-      if (isFirstPageAndNoSearch) {
+      final isFirstPageAndEmptyQuery = query.isEmpty && page == 1;
+      if (isFirstPageAndEmptyQuery) {
         final cachedData = await _localStorageRepository.getSearchData();
         if (cachedData != null) yield Right(cachedData);
       }
       final result = await _apiClient.searchEntities(query, page);
       final searchEntity = _searchEntityMapper(result);
-      if (isFirstPageAndNoSearch) {
+      if (isFirstPageAndEmptyQuery) {
         await _localStorageRepository.setSearchData(searchEntity: searchEntity);
       }
       yield Right(searchEntity);

@@ -11,7 +11,6 @@ final stockDataEntityMapperProvider =
       country: response.country,
       exchange: response.exchange,
       exchangeLong: response.exchangeLong,
-      micCode: response.micCode,
       name: response.name,
       symbol: response.symbol,
       industry: response.industry,

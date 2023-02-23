@@ -11,7 +11,6 @@ class StockData extends Equatable {
   final String? industry;
   final String exchange;
   final String exchangeLong;
-  final String micCode;
   final String country;
 
   const StockData({
@@ -21,7 +20,6 @@ class StockData extends Equatable {
     this.industry,
     required this.exchange,
     required this.exchangeLong,
-    required this.micCode,
     required this.country,
   });
 
@@ -37,7 +35,6 @@ class StockData extends Equatable {
     String? industry,
     String? exchange,
     String? exchangeLong,
-    String? micCode,
     String? country,
   }) {
     return StockData(
@@ -47,7 +44,6 @@ class StockData extends Equatable {
       industry: industry ?? this.industry,
       exchange: exchange ?? this.exchange,
       exchangeLong: exchangeLong ?? this.exchangeLong,
-      micCode: micCode ?? this.micCode,
       country: country ?? this.country,
     );
   }
@@ -60,7 +56,6 @@ class StockData extends Equatable {
         industry,
         exchange,
         exchangeLong,
-        micCode,
         country,
       ];
 }

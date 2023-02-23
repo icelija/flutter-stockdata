@@ -31,7 +31,7 @@ void main() {
             .overrideWith((ref) => NewsNotifier(newsRepository)),
       ]);
 
-  group(' getNews()', () {
+  group('getNews()', () {
     stateNotifierTest<NewsNotifier, NewsState>(
       'executes first fetch successfully',
       build: () => getProviderContainer().read(newsNotifierProvider.notifier),
@@ -129,5 +129,17 @@ void main() {
         NewsState.failure(Failure.generic()),
       ],
     );
+  });
+
+  test('make sure provider returns same notifier instance', () async {
+    when(() => newsRepository.getNews(page: 1)).thenAnswer(
+      (_) async => Right(testNewsEntity),
+    );
+    final providerContainer = ProviderContainer(overrides: [
+      newsRepositoryProvider.overrideWith((_) => newsRepository),
+    ]);
+    final value = providerContainer.read(newsNotifierProvider);
+    final value2 = providerContainer.read(newsNotifierProvider);
+    expect(value, value2);
   });
 }

@@ -31,7 +31,6 @@ const testStockData = StockData(
     type: 'equity',
     exchange: 'NZX',
     exchangeLong: 'New Zealand Stock Exchange',
-    micCode: 'XNZE',
     country: 'nz');
 
 const testStockData2 = StockData(
@@ -40,7 +39,6 @@ const testStockData2 = StockData(
     type: 'index',
     exchange: 'NZX',
     exchangeLong: 'New Zealand Stock Exchange',
-    micCode: 'XNZE',
     country: 'nz');
 
 const testSearchEntity = SearchEntity(metaData: testMetaData, stocksData: [
@@ -51,7 +49,6 @@ const testSearchEntity = SearchEntity(metaData: testMetaData, stocksData: [
       type: 'index',
       exchange: 'NZX',
       exchangeLong: 'New Zealand Stock Exchange',
-      micCode: 'XNZE',
       country: 'nz'),
 ]);
 
@@ -69,7 +66,6 @@ const testSearchEntity2 = SearchEntity(
           type: 'index',
           exchange: 'NZX',
           exchangeLong: 'New Zealand Stock Exchange',
-          micCode: 'XNZE',
           country: 'nz'),
       StockData(
           symbol: 'DGC.NZ',
@@ -77,7 +73,6 @@ const testSearchEntity2 = SearchEntity(
           type: 'equity',
           exchange: 'NZX',
           exchangeLong: 'New Zealand Stock Exchange',
-          micCode: 'XNZE',
           country: 'nz'),
     ]);
 
@@ -110,8 +105,6 @@ const testNewsStockData = NewsStockData(
   exchange: 'NYSE',
   exchangeLong: 'New York Stock Exchange',
   country: 'us',
-  matchScore: 117.90056,
-  sentimentScore: 0.3548,
 );
 
 final testNewsDataResponse = NewsDataResponse(
@@ -171,7 +164,6 @@ final testNewsData = NewsData(
   title: 'BrightSpire Capital, Inc. (BRSP) Q4 2022 Earnings Call Transcript',
   description:
       'BrightSpire Capital, Inc. (NYSE:NYSE:BRSP) Q4 2022 Earnings Conference Call February 21, 2023 10:00 AM ETCompany ParticipantsDavid Palame - General CounselMike Mazzei - Chief Executive...',
-  keywords: '',
   snippet:
       'BrightSpire Capital, Inc. (NYSE:BRSP) Q4 2022 Earnings Conference Call February 21, 2023 10:00 AM ET\n\nCompany Participants\n\nDavid Palame - General Counsel\n\nMike...',
   url:
@@ -181,9 +173,7 @@ final testNewsData = NewsData(
   language: 'en',
   publishedAt: DateTime.parse('2023-02-21T19:29:03.000000Z').toLocal(),
   source: 'seekingalpha.com',
-  relevanceScore: null,
   entities: const [],
-  similar: const [],
 );
 
 final testNewsDataResponse2 = NewsDataResponse(
@@ -222,7 +212,6 @@ final testNewsData2 = NewsData(
   title: 'Arconic Corporation (ARNC) Q4 2022 Earnings Call Transcript',
   description:
       'Arconic Corporation (NYSE:NYSE:ARNC) Q4 2022 Earnings Conference Call February 21, 2023 10:00 AM ETCompany ParticipantsShane Rourke - Director of Investor RelationsTimothy Myers - Chief...',
-  keywords: '',
   snippet:
       'Arconic Corporation (NYSE:ARNC) Q4 2022 Earnings Conference Call February 21, 2023 10:00 AM ET\n\nCompany Participants\n\nShane Rourke - Director of Investor Relati...',
   url:
@@ -232,20 +221,9 @@ final testNewsData2 = NewsData(
   language: 'en',
   publishedAt: DateTime.parse('2023-02-21T18:25:02.000000Z').toLocal(),
   source: 'seekingalpha.com',
-  relevanceScore: null,
   entities: const [
-    NewsStockData(
-        symbol: 'ARNC',
-        name: 'Arconic Corporation',
-        exchange: 'NYSE',
-        exchangeLong: 'New York Stock Exchange',
-        country: 'us',
-        type: 'equity',
-        industry: 'Industrials',
-        matchScore: 117.90056,
-        sentimentScore: 0.3548),
+    testNewsStockData,
   ],
-  similar: const [],
 );
 
 final testNewsResponse =
@@ -273,7 +251,6 @@ final testNewsEntity2 = NewsEntity(
             'Columbia Sportswear Winter Sale: Save Up to 50% OFF Many Select Gear - Hot Canada Deals',
         description:
             'Columbia Sportswear Canada has a great sale available now, where you can Save up to 50% off on many select gear. This offer is valid until March 8, 2023. Columbia Sportswear Canada offers \$7 flat rate shipping on all orders. Click below to start shopping at Columbia Sportswear Canada. Enjoy 🙂',
-        keywords: '',
         snippet:
             'Columbia Sportswear Canada has a great sale available now, where you can Save up to 50% off on many select gear.\n\nThis offer is valid until March 8, 2023.\n\nColu...',
         url:
@@ -283,9 +260,7 @@ final testNewsEntity2 = NewsEntity(
         language: 'en',
         publishedAt: DateTime.parse('2023-02-21T21:39:43.000000Z').toLocal(),
         source: 'hotcanadadeals.ca',
-        relevanceScore: null,
         entities: const [],
-        similar: const [],
       ),
       NewsData(
         uuid: '41c4ad38-6c13-4d8c-8877-153d8df6fea9',
@@ -293,7 +268,6 @@ final testNewsEntity2 = NewsEntity(
             'AppifyText.ai - From Text description to ready-to-use Web App in 30 seconds',
         description:
             'Describe your desired application in plain English and let AppifyText do the rest. AppifyText is a text-to-app, powered by AI, no-code platform. Create internal tools, business apps, admin portals, personal databases & more in 30 seconds.',
-        keywords: '',
         snippet:
             'Free Options Discuss Collect Share Stats\n\nDescribe your desired application in plain English and let AppifyText do the rest. AppifyText is a text-to-app, powere...',
         url: 'https://www.producthunt.com/posts/appifytext-ai',
@@ -302,8 +276,6 @@ final testNewsEntity2 = NewsEntity(
         language: 'en',
         publishedAt: DateTime.parse('2023-02-21T21:32:21.000000Z').toLocal(),
         source: 'producthunt.com',
-        relevanceScore: null,
         entities: const [],
-        similar: const [],
       ),
     ]);

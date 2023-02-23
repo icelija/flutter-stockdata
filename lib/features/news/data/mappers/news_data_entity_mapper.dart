@@ -14,17 +14,14 @@ final newsDataEntityMapperProvider =
       description: response.description,
       uuid: response.uuid,
       imageUrl: response.imageUrl,
-      keywords: response.keywords,
       language: response.language,
       publishedAt: response.publishedAt?.toLocal(),
-      relevanceScore: response.relevanceScore,
       snippet: response.snippet,
       source: response.source,
       url: response.url,
       entities: response.entities
           .map((entity) => newsStockDataEntityMapper(entity))
           .toList(),
-      similar: const [],
     );
   },
 );

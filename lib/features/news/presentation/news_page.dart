@@ -73,7 +73,7 @@ class NewsListView extends ConsumerWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                if (!kIsWeb && stockData.imageUrl != null)
+                if (!kIsWeb && stockData.imageUrl?.isNotEmpty == true)
                   CachedNetworkImage(
                     imageUrl: stockData.imageUrl!,
                     width: double.infinity,

@@ -138,5 +138,17 @@ void main() {
         SearchState.failure(Failure.generic()),
       ],
     );
+
+    test('make sure provider returns same notifier instance', () async {
+      when(() => searchRepository.search(page: 1)).thenAnswer(
+        (_) => Stream<Either<Failure, SearchEntity>>.fromIterable([]),
+      );
+      final providerContainer = ProviderContainer(overrides: [
+        searchRepositoryProvider.overrideWith((_) => searchRepository),
+      ]);
+      final value = providerContainer.read(searchNotifierProvider);
+      final value2 = providerContainer.read(searchNotifierProvider);
+      expect(value, value2);
+    });
   });
 }

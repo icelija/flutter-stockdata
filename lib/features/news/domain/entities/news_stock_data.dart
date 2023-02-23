@@ -8,8 +8,6 @@ class NewsStockData extends Equatable {
   final String exchange;
   final String exchangeLong;
   final String country;
-  final num matchScore;
-  final num? sentimentScore;
 
   const NewsStockData({
     required this.symbol,
@@ -19,8 +17,6 @@ class NewsStockData extends Equatable {
     required this.exchange,
     required this.exchangeLong,
     required this.country,
-    required this.matchScore,
-    this.sentimentScore,
   });
 
   NewsStockData copyWith({
@@ -31,8 +27,6 @@ class NewsStockData extends Equatable {
     String? exchange,
     String? exchangeLong,
     String? country,
-    num? matchScore,
-    num? sentimentScore,
   }) {
     return NewsStockData(
       symbol: symbol ?? this.symbol,
@@ -42,8 +36,6 @@ class NewsStockData extends Equatable {
       exchange: exchange ?? this.exchange,
       exchangeLong: exchangeLong ?? this.exchangeLong,
       country: country ?? this.country,
-      matchScore: matchScore ?? this.matchScore,
-      sentimentScore: sentimentScore ?? this.sentimentScore,
     );
   }
 
@@ -56,7 +48,5 @@ class NewsStockData extends Equatable {
         exchange,
         exchangeLong,
         country,
-        matchScore,
-        sentimentScore,
       ];
 }

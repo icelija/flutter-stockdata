@@ -51,7 +51,7 @@ void main() {
       value.fold((l) => expect(l.error, testException), (r) => null);
     });
 
-    test('executes failure flow', () async {
+    test('make sure provider returns same repository instance', () async {
       final providerContainer = ProviderContainer();
       final value = providerContainer.read(newsRepositoryProvider);
       final value2 = providerContainer.read(newsRepositoryProvider);

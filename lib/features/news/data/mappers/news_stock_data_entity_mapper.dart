@@ -14,8 +14,6 @@ final newsStockDataEntityMapperProvider =
       name: response.name,
       symbol: response.symbol,
       industry: response.industry,
-      matchScore: response.matchScore,
-      sentimentScore: response.sentimentScore,
     );
   },
 );
