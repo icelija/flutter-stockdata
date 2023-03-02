@@ -4,10 +4,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:stockdata/features/search/domain/entities/search_entity.dart';
 
+final sharedPreferencesProvider =
+    Provider<SharedPreferences>((ref) => throw UnimplementedError());
+
 final localStorageProvider = Provider<LocalStorageRepository>(
-  (_) => LocalStorageRepositoryImpl(
-    SharedPreferences.getInstance(),
-  ),
+  (ref) => LocalStorageRepositoryImpl(
+    ref.read(sharedPreferencesProvider),
+  ).._clearSecureStorageOnReinstall(),
 );
 
 abstract class LocalStorageRepository {
@@ -17,58 +20,35 @@ abstract class LocalStorageRepository {
 }
 
 class LocalStorageRepositoryImpl implements LocalStorageRepository {
-  final Future<SharedPreferences> _sharedPreferencesFuture;
-  SharedPreferences? _sharedPreferencesInstance;
+  final SharedPreferences _sharedPreferences;
 
-  LocalStorageRepositoryImpl(
-    this._sharedPreferencesFuture,
-  ) {
-    _clearSecureStorageOnReinstall();
-  }
-
-  Future<SharedPreferences> get _sharedPrefs async {
-    return _sharedPreferencesInstance ??= await _sharedPreferencesFuture;
-  }
+  LocalStorageRepositoryImpl(this._sharedPreferences);
 
   @override
-  Future<void> deleteAllSharedPrefs() async => (await _sharedPrefs).clear();
+  Future<void> deleteAllSharedPrefs() async => _sharedPreferences.clear();
 
   @override
   Future<void> setSearchData({required SearchEntity searchEntity}) async {
-    (await _sharedPrefs).setString(
+    _sharedPreferences.setString(
         LocalStorageKey.emptySearch.key, jsonEncode(searchEntity.toJson()));
   }
 
   @override
   Future<SearchEntity?> getSearchData() async {
     final searchDataString =
-        (await _sharedPrefs).getString(LocalStorageKey.emptySearch.key);
+        _sharedPreferences.getString(LocalStorageKey.emptySearch.key);
     if (searchDataString != null) {
       return SearchEntity.fromJson(jsonDecode(searchDataString));
     }
     return null;
   }
 
-  Future<void> write({
-    required LocalStorageKey key,
-    required String value,
-  }) async {
-    (await _sharedPrefs).setString(key.key, value);
-  }
-
-  Future<T?> read<T>(LocalStorageKey key) async =>
-      (await _sharedPrefs).get(key.key) as T?;
-
-  Future<void> delete(LocalStorageKey key) async =>
-      (await _sharedPrefs).remove(key.key);
-
   ///Necessary because of https://github.com/mogol/flutter_secure_storage/issues/88
   Future<void> _clearSecureStorageOnReinstall() async {
     const key = 'hasRunBefore';
-    final sharedPreferences = await _sharedPrefs;
-    if (sharedPreferences.getBool(key) != true) {
+    if (_sharedPreferences.getBool(key) != true) {
       await deleteAllSharedPrefs();
-      await sharedPreferences.setBool(key, true);
+      await _sharedPreferences.setBool(key, true);
     }
   }
 }

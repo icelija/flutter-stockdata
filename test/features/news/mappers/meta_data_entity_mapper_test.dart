@@ -5,14 +5,14 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:stockdata/common/data/mappers/meta_data_entity_mapper.dart';
 import 'package:stockdata/common/data/models/meta_data_response.dart';
 
-import '../../../fixtures/fixture_reader.dart';
+import '../../../json/json_reader.dart';
 import '../../../test_variables.dart';
 
 void main() {
   test(
     'Should map news_response fixture to appropriate entity.',
     () async {
-      final jsonMap = json.decode(fixture('news_response.json'));
+      final jsonMap = json.decode(readJsonString('news_response.json'));
       final response = MetaDataResponse.fromJson(jsonMap['meta']);
 
       final container = ProviderContainer();

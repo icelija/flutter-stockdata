@@ -2,6 +2,8 @@ import 'package:beamer/beamer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:stockdata/common/data/repositories/local_storage_repository.dart';
 import 'package:stockdata/common/domain/router/beamer_locations.dart';
 import 'package:stockdata/features/home/presentation/home_page.dart';
 import 'package:stockdata/theme/primary_theme.dart';
@@ -10,9 +12,11 @@ import 'package:stockdata/theme/secondary_theme.dart';
 import 'common/utils/custom_provider_observer.dart';
 import 'generated/l10n.dart';
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  final sharedPreferences = await SharedPreferences.getInstance();
   runApp(ProviderScope(
+    overrides: [sharedPreferencesProvider.overrideWithValue(sharedPreferences)],
     observers: [CustomProviderObserver()],
     child: const MyApp(),
   ));

@@ -9,14 +9,15 @@ import 'package:stockdata/features/search/data/mappers/search_entity_mapper.dart
 import 'package:stockdata/features/search/data/mappers/stock_data_entity_mapper.dart';
 import 'package:stockdata/features/search/data/models/entity_search_response.dart';
 
-import '../../../../fixtures/fixture_reader.dart';
+import '../../../../json/json_reader.dart';
 import '../../../../test_variables.dart';
 
 void main() {
   test(
     'Should map entity_search_response fixture to appropriate entity.',
     () async {
-      final jsonMap = json.decode(fixture('entity_search_response.json'));
+      final jsonMap =
+          json.decode(readJsonString('entity_search_response.json'));
       final response = EntitySearchResponse.fromJson(jsonMap);
 
       final container = ProviderContainer(
