@@ -23,7 +23,7 @@ void main() {
 
   late NewsRepository newsRepository;
   late EntityMapper<NewsEntity, NewsResponse> newsEntityMapper;
-  setUp(() async {
+  setUpAll(() async {
     await S.load(const Locale.fromSubtags(languageCode: 'en'));
 
     apiClient = MockApiClient();
@@ -35,7 +35,7 @@ void main() {
     );
   });
 
-  group(' getNews()', () {
+  group('getNews()', () {
     test('executes success flow', () async {
       when(() => apiClient.getNews(any(), 1))
           .thenAnswer((_) async => testNewsResponse);

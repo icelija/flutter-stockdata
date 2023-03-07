@@ -15,7 +15,7 @@ void main() {
   late SharedPreferences sharedPreferences;
   late LocalStorageRepository localStorageRepository;
 
-  setUp(() async {
+  setUpAll(() async {
     sharedPreferences = MockSharedPreferences();
 
     localStorageRepository = LocalStorageRepositoryImpl(

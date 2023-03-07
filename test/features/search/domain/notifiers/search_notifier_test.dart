@@ -20,7 +20,7 @@ class MockSearchRepository extends Mock implements SearchRepository {}
 void main() {
   late SearchRepository searchRepository;
 
-  setUp(() async {
+  setUpAll(() async {
     await S.load(const Locale.fromSubtags(languageCode: 'en'));
 
     searchRepository = MockSearchRepository();

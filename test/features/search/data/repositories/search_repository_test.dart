@@ -29,7 +29,7 @@ void main() {
 
   late SearchRepository searchRepository;
 
-  setUp(() async {
+  setUpAll(() async {
     await S.load(const Locale.fromSubtags(languageCode: 'en'));
 
     apiClient = MockApiClient();

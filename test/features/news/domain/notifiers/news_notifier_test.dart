@@ -20,7 +20,7 @@ class MockNewsRepository extends Mock implements NewsRepository {}
 void main() {
   late NewsRepository newsRepository;
 
-  setUp(() async {
+  setUpAll(() async {
     await S.load(const Locale.fromSubtags(languageCode: 'en'));
 
     newsRepository = MockNewsRepository();
